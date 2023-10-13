@@ -20,5 +20,5 @@ mongoose
 
 app.use(routes);
 
-//Listening to Port
+//Listening to Ports
 app.listen(PORT, () => console.log(`Listening to ${PORT}`));

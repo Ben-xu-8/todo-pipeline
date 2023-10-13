@@ -7,7 +7,7 @@ const {
 } = require('../controllers/ToDoController');
 
 const router = Router();
-router.get('/api', getToDo);
+router.get('/', getToDo);
 router.post('/api/save', saveToDo);
 router.post('/api/update', updateToDo);
 router.post('/api/delete', deleteToDo);

@@ -11,22 +11,6 @@ const app = express();
 
 const PORT = process.env.port || 5000;
 
-const _dirname = path._dirname('');
-const buildPath = path.join(_dirname, '../frontend/build');
-
-app.use(express.static(buildPath));
-
-app.get('/', function (req, res) {
-  res.sendFile(
-    path.join(__dirname, '../frontend/build/index.html'),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  );
-});
-
 app.use(express.json());
 app.use(cors());
 

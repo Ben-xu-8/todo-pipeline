@@ -21,8 +21,12 @@ services:
       - mongodb
   # Create database container
   mongodb:
-    image: mongodb
+    image: mongodb:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORKD = rootpassword
     ports:
       - '5432:5432'
-    container_name: database-docker
+    volume:
+      - mongodb_data-container:/data/db
     restart: always

@@ -1,0 +1,34 @@
+# Ansible Playbook
+- name: Build & Deploy Docker Container
+  hosts: dockerservers
+  gather_facts: false
+  remote_user: root
+  tasks:
+    - name: Stop Container
+      docker_container:
+        name: task-container
+        image: task:latest
+        state: stopped
+    - name: Remove Container
+      docker_container:
+        name: task-container
+        image: task:latest
+        state: absent
+    - name: Remove Docker Image
+      docker_image:
+        name: task:latest
+        state: absent
+    - name: Build Docker Image
+      docker_image:
+        name: task:latest
+        source: build
+        build:
+          path: ~/projects/
+        state: present
+    - name: Create Container
+      docker_container:
+        name: task-container
+        image: task:latest
+        ports:
+          - '80:80'
+        state: started

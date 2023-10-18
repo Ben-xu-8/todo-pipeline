@@ -22,12 +22,12 @@ services:
   # Create database container
   mongodb:
     image: mongodb:latest
+    ports:
+      - '5432:5432'
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORKD=rootpassword
-    ports:
-      - '5432:5432'
     volumes:
-      - mongodb_data-container:/data/db
+      - mongodb_data_container:/data/db
 volumes:
   mongodb_data_container:

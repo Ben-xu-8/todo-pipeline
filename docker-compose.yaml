@@ -1,5 +1,15 @@
 version: '3.8'
 services:
+  # Create database container
+  mongodb:
+    image: mongo:6-jammy
+    ports:
+      - '5432:5432'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORKD=rootpassword
+    volumes:
+      - mongodb_data_container:/data/db
   # Create frontend container
   frontend: # Name of our service
     build: ./frontend # path to dockerfile
@@ -19,15 +29,5 @@ services:
     restart: always
     links:
       - mongodb
-  # Create database container
-  mongodb:
-    image: mongo:6-jammy
-    ports:
-      - '5432:5432'
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORKD=rootpassword
-    volumes:
-      - mongodb_data_container:/data/db
 volumes:
   mongodb_data_container:

@@ -21,7 +21,7 @@ services:
       - mongodb
   # Create database container
   mongodb:
-    image: mongo:6-jammy
+    image: mongo
     ports:
       - '5432:5432'
     environment:

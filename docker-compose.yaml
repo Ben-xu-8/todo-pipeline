@@ -27,6 +27,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORKD = rootpassword
     ports:
       - '5432:5432'
-    volume:
+    volumes:
       - mongodb_data-container:/data/db
-    restart: always
+  volumes:
+    mongodb_data_container:

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   # Create frontend container
   frontend: # Name of our service
@@ -29,3 +29,5 @@ services:
       - '5432:5432'
     volumes:
       - mongodb_data-container:/data/db
+volumes:
+  mongodb_data_container:

@@ -29,5 +29,3 @@ services:
       - '5432:5432'
     volumes:
       - mongodb_data-container:/data/db
-  volumes:
-    mongodb_data_container:
